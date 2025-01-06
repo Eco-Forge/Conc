@@ -7,34 +7,54 @@ This project uses Data Science and Machine Learning technology to predict concre
 ## Data Source
 https://www.kaggle.com/elikplim/concrete-compressive-strength-data-set
 
+## Prerequisites
+- Python 3.8.18 (recommended version)
+- pip (Python package installer)
+
 ## Installation
 
+1. Clone the repository:
 ```bash
-# Clone the repository
 git clone https://github.com/Eco-Forge/Conc.git
 cd Conc
+```
 
-# Install required packages
+2. Create and activate a Python virtual environment (recommended):
+```bash
+python -m venv venv
+source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+```
+
+3. Install required packages:
+```bash
 pip install -r requirements.txt
-# Or install individual packages
-pip install flask numpy pandas joblib xgboost scikit-learn
+```
 
-# Run the application
+## Running the Application
+
+1. Start the Flask application:
+```bash
 python app.py
+```
+
+2. Open your web browser and navigate to:
+```
+http://127.0.0.1:5000
 ```
 
 ## Usage
 
-1. Start the Flask application
-2. Open your web browser to `http://localhost:5000`
-3. Enter the following concrete mixture parameters:
+1. In the web interface, enter the following concrete mixture parameters:
    - Age (in days)
    - Cement quantity (in kg)
    - Water quantity (in kg)
    - Fly ash quantity (in kg)
    - Superplasticizer quantity (in kg)
    - Blast furnace slag quantity (in kg)
-4. Click "Predict" to get the estimated concrete compressive strength in MPa
+
+2. Click "Predict" to get the estimated concrete compressive strength in MPa
+
+3. The result will be displayed showing the predicted strength in MPa (Megapascals)
 
 ## Technical Approach
 
@@ -71,3 +91,5 @@ python app.py
 - [Feature selection with sklearn and pandas](https://towardsdatascience.com/feature-selection-with-pandas-e3690ad8504b)
 - [sklearn's LassoCV](https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LassoCV.html)
 - [Hyper parameter tuning in XGBoost](https://xgboost.readthedocs.io/en/latest/tutorials/param_tuning.html)
+
+  
