@@ -32,14 +32,14 @@ Note for Apple Silicon (M1/M2) Mac users: The conda-forge channel is used by def
 
 ## Running the Application
 
-1. Start the Flask application:
+1. Start the FastAPI application:
 ```bash
-python app/main.py
+uvicorn app.api:app --reload --host 0.0.0.0 --port 8000
 ```
 
 2. Open your web browser and navigate to:
 ```
-http://127.0.0.1:5000
+http://localhost:8000
 ```
 
 ## Usage
@@ -78,8 +78,9 @@ http://127.0.0.1:5000
    - Saved model performance metrics and feature importance in results directory
 
 4. Model Deployment:
-   - Implemented using Flask backend
-   - Created simple HTML interface for input and prediction display
+   - Implemented using FastAPI backend for improved compatibility
+   - Modern HTML interface with Bootstrap for input and prediction display
+   - ASGI server (uvicorn) for better performance
 
 ## References
  
