@@ -8,8 +8,8 @@ This project uses Data Science and Machine Learning technology to predict concre
 https://www.kaggle.com/elikplim/concrete-compressive-strength-data-set
 
 ## Prerequisites
-- Python 3.8.18 (recommended version)
-- pip (Python package installer)
+- Anaconda or Miniconda installed (for conda package management)
+- Git (for cloning the repository)
 
 ## Installation
 
@@ -19,22 +19,22 @@ git clone https://github.com/Eco-Forge/Conc.git
 cd Conc
 ```
 
-2. Create and activate a Python virtual environment (recommended):
+2. Create and activate the conda environment:
 ```bash
-python -m venv venv
-source venv/bin/activate  # On Windows, use: venv\Scripts\activate
+# Create the environment from environment.yml
+conda env create -f environment.yml
+
+# Activate the environment
+conda activate conc-env
 ```
 
-3. Install required packages:
-```bash
-pip install -r requirements.txt
-```
+Note for Apple Silicon (M1/M2) Mac users: The conda-forge channel is used by default in environment.yml for better compatibility with Apple Silicon processors.
 
 ## Running the Application
 
 1. Start the Flask application:
 ```bash
-python app.py
+python app/main.py
 ```
 
 2. Open your web browser and navigate to:
