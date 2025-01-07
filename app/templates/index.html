@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ current_lang }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Concrete Compressive Strength Predictor</title>
+    <title>{{ translations.title }}</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -14,12 +14,22 @@
             font-weight: bold;
             color: #0d6efd;
         }
+        .language-switcher {
+            position: absolute;
+            right: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     </style>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
-        <div class="container">
-            <span class="navbar-brand">Concrete Strength Predictor</span>
+        <div class="container position-relative">
+            <span class="navbar-brand">{{ translations.navbar_title }}</span>
+            <div class="language-switcher">
+                <a href="/switch-language/en" class="btn btn-sm {{ 'btn-light' if current_lang == 'en' else 'btn-outline-light' }}">EN</a>
+                <a href="/switch-language/zh" class="btn btn-sm {{ 'btn-light' if current_lang == 'zh' else 'btn-outline-light' }}">中文</a>
+            </div>
         </div>
     </nav>
 
@@ -28,40 +38,40 @@
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Predict Concrete Strength</h2>
+                        <h2 class="card-title text-center mb-4">{{ translations.form_title }}</h2>
                         <form action="/predict" method="post">
                             <div class="mb-3">
-                                <label for="age" class="form-label">Age (in days)</label>
+                                <label for="age" class="form-label">{{ translations.age }}</label>
                                 <input type="number" step="any" class="form-control" id="age" name="age" 
-                                       placeholder="Enter concrete age" required>
+                                       placeholder="{{ translations.enter_age }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="cement" class="form-label">Cement (in kg)</label>
-                                <input type="number" step="any" class="form-control" id="cement" 
-                                       name="cement" placeholder="Enter cement quantity" required>
+                                <label for="cement" class="form-label">{{ translations.cement }}</label>
+                                <input type="number" step="any" class="form-control" id="cement" name="cement" 
+                                       placeholder="{{ translations.enter_cement }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="water" class="form-label">Water (in kg)</label>
-                                <input type="number" step="any" class="form-control" id="water" 
-                                       name="water" placeholder="Enter water quantity" required>
+                                <label for="water" class="form-label">{{ translations.water }}</label>
+                                <input type="number" step="any" class="form-control" id="water" name="water" 
+                                       placeholder="{{ translations.enter_water }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="fly_ash" class="form-label">Fly Ash (in kg)</label>
-                                <input type="number" step="any" class="form-control" id="fly_ash" 
-                                       name="fly_ash" placeholder="Enter fly ash quantity" required>
+                                <label for="fly_ash" class="form-label">{{ translations.fly_ash }}</label>
+                                <input type="number" step="any" class="form-control" id="fly_ash" name="fly_ash" 
+                                       placeholder="{{ translations.enter_fly_ash }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="superplasticizer" class="form-label">Superplasticizer (in kg)</label>
-                                <input type="number" step="any" class="form-control" id="superplasticizer" 
-                                       name="superplasticizer" placeholder="Enter superplasticizer quantity" required>
+                                <label for="superplasticizer" class="form-label">{{ translations.superplasticizer }}</label>
+                                <input type="number" step="any" class="form-control" id="superplasticizer" name="superplasticizer" 
+                                       placeholder="{{ translations.enter_superplasticizer }}" required>
                             </div>
                             <div class="mb-3">
-                                <label for="blast_furnace_slag" class="form-label">Blast Furnace Slag (in kg)</label>
-                                <input type="number" step="any" class="form-control" id="blast_furnace_slag" 
-                                       name="blast_furnace_slag" placeholder="Enter blast furnace slag quantity" required>
+                                <label for="blast_furnace_slag" class="form-label">{{ translations.blast_furnace_slag }}</label>
+                                <input type="number" step="any" class="form-control" id="blast_furnace_slag" name="blast_furnace_slag" 
+                                       placeholder="{{ translations.enter_blast_furnace_slag }}" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Predict Strength</button>
+                                <button type="submit" class="btn btn-primary btn-lg">{{ translations.predict_button }}</button>
                             </div>
                             <div class="prediction-text text-center mt-3">
                                 {{ prediction_text }}
