@@ -22,46 +22,46 @@ async def home(request: Request):
         {"request": request, "prediction_text": ""}
     )
 
+# ... existing code ...
+
 @app.post("/predict")
-async def predict(
-    request: Request,
-    age: float = Form(...),
-    cement: float = Form(...),
-    water: float = Form(...),
-    fa: float = Form(...),
-    sp: float = Form(...),
-    bfs: float = Form(...)
-):
-    """Process form input and return prediction"""
+async def predict(request: Request, 
+                 age: float = Form(...),
+                 cement: float = Form(...),
+                 water: float = Form(...),
+                 fly_ash: float = Form(...),
+                 superplasticizer: float = Form(...),
+                 blast_furnace_slag: float = Form(...)):
     try:
-        # Create feature list in the correct order
-        f_list = [age, cement, water, fa, sp, bfs]
+        # Debug print
+        print(f"Received values: age={age}, cement={cement}, water={water}, fly_ash={fly_ash}, "
+              f"superplasticizer={superplasticizer}, blast_furnace_slag={blast_furnace_slag}")
         
-        # Reshape and convert to DataFrame
-        final_features = np.array(f_list).reshape(-1, 6)
-        df = pd.DataFrame(final_features)
+        # Create DataFrame with named columns in the correct order
+        input_data = pd.DataFrame([[age, cement, water, fly_ash, superplasticizer, blast_furnace_slag]], 
+                                columns=['age', 'cement', 'water', 'fly_ash', 'superplasticizer', 'blast_furnace_slag'])
+        
+        # Debug print
+        print("Input data:", input_data)
         
         # Make prediction
-        prediction = model.predict(df)
-        result = "%.2f" % round(prediction[0], 2)
+        prediction = model.predict(input_data)
         
-        # Return the template with prediction
-        return templates.TemplateResponse(
-            "index.html",
-            {
-                "request": request,
-                "prediction_text": f"The Concrete compressive strength is {result} MPa"
-            }
-        )
+        # Debug print
+        print(f"Prediction result: {prediction[0]:.2f} MPa")
+        
+        result = templates.TemplateResponse("index.html", 
+                                       {"request": request, 
+                                        "prediction_text": f"Predicted Concrete Strength: {prediction[0]:.2f} MPa"})
+        # Debug print
+        print("Returning response with prediction_text:", result.context["prediction_text"])
+        return result
+        
     except Exception as e:
-        # Handle errors gracefully
-        return templates.TemplateResponse(
-            "index.html",
-            {
-                "request": request,
-                "prediction_text": f"Error in prediction: {str(e)}"
-            }
-        )
+        print(f"Error occurred: {str(e)}")
+        return templates.TemplateResponse("index.html", 
+                                       {"request": request, 
+                                        "prediction_text": f"Error in prediction: {str(e)}"})
 
 if __name__ == "__main__":
     import uvicorn

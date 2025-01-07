@@ -32,33 +32,33 @@
                         <form action="/predict" method="post">
                             <div class="mb-3">
                                 <label for="age" class="form-label">Age (in days)</label>
-                                <input type="number" class="form-control" id="age" name="age" 
+                                <input type="number" step="any" class="form-control" id="age" name="age" 
                                        placeholder="Enter concrete age" required>
                             </div>
                             <div class="mb-3">
                                 <label for="cement" class="form-label">Cement (in kg)</label>
-                                <input type="number" step="0.01" class="form-control" id="cement" 
+                                <input type="number" step="any" class="form-control" id="cement" 
                                        name="cement" placeholder="Enter cement quantity" required>
                             </div>
                             <div class="mb-3">
                                 <label for="water" class="form-label">Water (in kg)</label>
-                                <input type="number" step="0.01" class="form-control" id="water" 
+                                <input type="number" step="any" class="form-control" id="water" 
                                        name="water" placeholder="Enter water quantity" required>
                             </div>
                             <div class="mb-3">
                                 <label for="fly_ash" class="form-label">Fly Ash (in kg)</label>
-                                <input type="number" step="0.01" class="form-control" id="fly_ash" 
-                                       name="fa" placeholder="Enter fly ash quantity" required>
+                                <input type="number" step="any" class="form-control" id="fly_ash" 
+                                       name="fly_ash" placeholder="Enter fly ash quantity" required>
                             </div>
                             <div class="mb-3">
                                 <label for="superplasticizer" class="form-label">Superplasticizer (in kg)</label>
-                                <input type="number" step="0.01" class="form-control" id="superplasticizer" 
-                                       name="sp" placeholder="Enter superplasticizer quantity" required>
+                                <input type="number" step="any" class="form-control" id="superplasticizer" 
+                                       name="superplasticizer" placeholder="Enter superplasticizer quantity" required>
                             </div>
                             <div class="mb-3">
                                 <label for="blast_furnace_slag" class="form-label">Blast Furnace Slag (in kg)</label>
-                                <input type="number" step="0.01" class="form-control" id="blast_furnace_slag" 
-                                       name="bfs" placeholder="Enter blast furnace slag quantity" required>
+                                <input type="number" step="any" class="form-control" id="blast_furnace_slag" 
+                                       name="blast_furnace_slag" placeholder="Enter blast furnace slag quantity" required>
                             </div>
                             <div class="text-center">
                                 <button type="submit" class="btn btn-primary btn-lg">Predict Strength</button>
