@@ -6,7 +6,7 @@ import numpy as np
 import pandas as pd
 import os
 
-app = FastAPI(title="Concrete Strength Predictor")
+app = FastAPI(title="混凝土强度预测系统")
 
 # Mount templates directory
 templates = Jinja2Templates(directory="app/templates")
@@ -34,34 +34,34 @@ async def predict(request: Request,
                  blast_furnace_slag: float = Form(...)):
     try:
         # Debug print
-        print(f"Received values: age={age}, cement={cement}, water={water}, fly_ash={fly_ash}, "
-              f"superplasticizer={superplasticizer}, blast_furnace_slag={blast_furnace_slag}")
+        print(f"接收到的数值: 龄期={age}, 水泥={cement}, 水={water}, 粉煤灰={fly_ash}, "
+              f"高效减水剂={superplasticizer}, 矿渣粉={blast_furnace_slag}")
         
         # Create DataFrame with named columns in the correct order
         input_data = pd.DataFrame([[age, cement, water, fly_ash, superplasticizer, blast_furnace_slag]], 
                                 columns=['age', 'cement', 'water', 'fly_ash', 'superplasticizer', 'blast_furnace_slag'])
         
         # Debug print
-        print("Input data:", input_data)
+        print("输入数据:", input_data)
         
         # Make prediction
         prediction = model.predict(input_data)
         
         # Debug print
-        print(f"Prediction result: {prediction[0]:.2f} MPa")
+        print(f"预测结果: {prediction[0]:.2f} MPa")
         
         result = templates.TemplateResponse("index.html", 
                                        {"request": request, 
-                                        "prediction_text": f"Predicted Concrete Strength: {prediction[0]:.2f} MPa"})
+                                        "prediction_text": f"预测的混凝土抗压强度: {prediction[0]:.2f} MPa"})
         # Debug print
-        print("Returning response with prediction_text:", result.context["prediction_text"])
+        print("返回预测结果:", result.context["prediction_text"])
         return result
         
     except Exception as e:
-        print(f"Error occurred: {str(e)}")
+        print(f"发生错误: {str(e)}")
         return templates.TemplateResponse("index.html", 
                                        {"request": request, 
-                                        "prediction_text": f"Error in prediction: {str(e)}"})
+                                        "prediction_text": f"预测过程中出现错误: {str(e)}"})
 
 if __name__ == "__main__":
     import uvicorn

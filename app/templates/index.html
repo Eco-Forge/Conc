@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Concrete Compressive Strength Predictor</title>
+    <title>混凝土抗压强度预测系统</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
@@ -19,7 +19,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
         <div class="container">
-            <span class="navbar-brand">Concrete Strength Predictor</span>
+            <span class="navbar-brand">混凝土强度预测系统</span>
         </div>
     </nav>
 
@@ -28,40 +28,40 @@
             <div class="col-md-8">
                 <div class="card shadow">
                     <div class="card-body">
-                        <h2 class="card-title text-center mb-4">Predict Concrete Strength</h2>
+                        <h2 class="card-title text-center mb-4">混凝土强度预测</h2>
                         <form action="/predict" method="post">
                             <div class="mb-3">
-                                <label for="age" class="form-label">Age (in days)</label>
+                                <label for="age" class="form-label">龄期（天）</label>
                                 <input type="number" step="any" class="form-control" id="age" name="age" 
-                                       placeholder="Enter concrete age" required>
+                                       placeholder="请输入混凝土龄期" required>
                             </div>
                             <div class="mb-3">
-                                <label for="cement" class="form-label">Cement (in kg)</label>
+                                <label for="cement" class="form-label">水泥用量（kg/m³）</label>
                                 <input type="number" step="any" class="form-control" id="cement" 
-                                       name="cement" placeholder="Enter cement quantity" required>
+                                       name="cement" placeholder="请输入水泥用量" required>
                             </div>
                             <div class="mb-3">
-                                <label for="water" class="form-label">Water (in kg)</label>
+                                <label for="water" class="form-label">水用量（kg/m³）</label>
                                 <input type="number" step="any" class="form-control" id="water" 
-                                       name="water" placeholder="Enter water quantity" required>
+                                       name="water" placeholder="请输入水用量" required>
                             </div>
                             <div class="mb-3">
-                                <label for="fly_ash" class="form-label">Fly Ash (in kg)</label>
+                                <label for="fly_ash" class="form-label">粉煤灰用量（kg/m³）</label>
                                 <input type="number" step="any" class="form-control" id="fly_ash" 
-                                       name="fly_ash" placeholder="Enter fly ash quantity" required>
+                                       name="fly_ash" placeholder="请输入粉煤灰用量" required>
                             </div>
                             <div class="mb-3">
-                                <label for="superplasticizer" class="form-label">Superplasticizer (in kg)</label>
+                                <label for="superplasticizer" class="form-label">高效减水剂用量（kg/m³）</label>
                                 <input type="number" step="any" class="form-control" id="superplasticizer" 
-                                       name="superplasticizer" placeholder="Enter superplasticizer quantity" required>
+                                       name="superplasticizer" placeholder="请输入高效减水剂用量" required>
                             </div>
                             <div class="mb-3">
-                                <label for="blast_furnace_slag" class="form-label">Blast Furnace Slag (in kg)</label>
+                                <label for="blast_furnace_slag" class="form-label">矿渣粉用量（kg/m³）</label>
                                 <input type="number" step="any" class="form-control" id="blast_furnace_slag" 
-                                       name="blast_furnace_slag" placeholder="Enter blast furnace slag quantity" required>
+                                       name="blast_furnace_slag" placeholder="请输入矿渣粉用量" required>
                             </div>
                             <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg">Predict Strength</button>
+                                <button type="submit" class="btn btn-primary btn-lg">预测强度</button>
                             </div>
                             <div class="prediction-text text-center mt-3">
                                 {{ prediction_text }}
@@ -76,7 +76,7 @@
     <footer class="footer mt-5 py-3 bg-light">
         <div class="container text-center">
             <span class="text-muted">
-                Designed by <a href="https://www.linkedin.com/in/jiale-h-5634721a6/" class="text-decoration-none">Jiale Han</a>
+                设计者: <a href="https://www.linkedin.com/in/jiale-h-5634721a6/" class="text-decoration-none">韩佳乐</a>
             </span>
         </div>
     </footer>
