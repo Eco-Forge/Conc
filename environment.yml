@@ -9,7 +9,7 @@ dependencies:
   - numpy>=1.19.5,<1.20.0  # Maintaining compatibility with existing model
   - pandas>=1.3.3,<1.4.0
   - scikit-learn>=0.24.2,<0.25.0
-  - xgboost>=1.4.2,<1.5.0
+  - xgboost=2.0.3  # Specific version for Apple Silicon compatibility
   - statsmodels>=0.12.2,<0.13.0
   # Web Framework
   - flask>=2.0.1,<2.1.0
