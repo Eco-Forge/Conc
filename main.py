@@ -445,4 +445,4 @@ joblib.dump(rf_model_2, 'models\RandomForest_Regressor_model.pkl')
 
 logging.info(" Solution development part completed successfully. Thank you _/\_ , Stay safe and healthy :-) ")
 
-# """ With this, Development part is completed. Moving on to the Deployment part in the app.py file """
+# """ With this, Development part is completed. Moving on to the Deployment part in app/api.py using FastAPI """

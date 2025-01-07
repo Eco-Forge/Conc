@@ -12,8 +12,6 @@ dependencies:
   - xgboost=2.0.3  # Specific version for Apple Silicon compatibility
   - statsmodels>=0.12.2,<0.13.0
   # Web Framework
-  - flask=2.0.1
-  - werkzeug=1.0.1  # Required for Flask 2.0.1 compatibility
   - gunicorn>=20.1.0
   # Utils
   - joblib>=1.0.1,<1.1.0
@@ -21,3 +19,7 @@ dependencies:
   - pip:
     # Any packages that might not be available in conda channels
     - python-dotenv>=0.19.0  # For environment variable management
+    - fastapi>=0.68.0  # Modern web framework replacement for Flask
+    - uvicorn>=0.15.0  # ASGI server for FastAPI
+    - python-multipart  # For form data handling in FastAPI
+    - jinja2>=3.0.0  # For template rendering
